@@ -1,0 +1,2 @@
+
+const EPSILON = 1

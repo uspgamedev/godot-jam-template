@@ -1,17 +1,25 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://objects/body.tscn" type="PackedScene" id=1]
 [ext_resource path="res://input/keyboard_directional.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/directed_body.tscn" type="PackedScene" id=3]
 
 [node name="BodyMovementTest" type="Node2D"]
 
 [node name="Body" parent="." instance=ExtResource( 1 )]
 
 transform/pos = Vector2( 404.32, 236.455 )
-direction = 3
 
 [node name="KeyboardDirectional" parent="Body" instance=ExtResource( 2 )]
 
-[connection signal="pressing_dir" from="Body/KeyboardDirectional" to="Body" method="push"]
+[node name="DirectedBody" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 185.013, 190.428 )
+
+[node name="KeyboardDirectional" parent="DirectedBody" instance=ExtResource( 2 )]
+
+[connection signal="pressing_dir" from="Body/KeyboardDirectional" to="Body" method="push_dir"]
+
+[connection signal="pressing_dir" from="DirectedBody/KeyboardDirectional" to="DirectedBody" method="push_dir"]
 
 

@@ -1,4 +1,6 @@
 
+const CONST = preload("res://definitions/constants.gd")
+
 const NONE = 0
 const UP = 1
 const RIGHT = 2
@@ -29,5 +31,15 @@ const DIRS = [
   Vector2(),
 ]
 
+const INTERVALS = [
+  UP_RIGHT, RIGHT, DOWN_RIGHT, DOWN, DOWN_LEFT, LEFT, UP_LEFT, UP
+]
+
 static func dir2vec(id):
-    return DIRS[id]
+  return DIRS[id]
+
+static func vec2dir(vec):
+  if vec.length_squared() < CONST.EPSILON*CONST.EPSILON:
+    return NONE
+  var angle = floor(3.5 - vec.angle()/(PI/4.0))
+  return INTERVALS[angle]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://objects/body.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -8,70 +8,6 @@
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
-
-[sub_resource type="Animation" id=2]
-
-resource/name = "down_idle"
-length = 1.0
-loop = true
-step = 0.1
-
-[sub_resource type="Animation" id=3]
-
-resource/name = "down_moving"
-length = 1.0
-loop = true
-step = 0.1
-
-[sub_resource type="Animation" id=4]
-
-resource/name = "left_idle"
-length = 1.0
-loop = true
-step = 0.1
-
-[sub_resource type="Animation" id=5]
-
-resource/name = "left_moving"
-length = 1.0
-loop = true
-step = 0.1
-
-[sub_resource type="Animation" id=6]
-
-resource/name = "right_idle"
-length = 1.0
-loop = true
-step = 0.1
-
-[sub_resource type="Animation" id=7]
-
-resource/name = "right_moving"
-length = 1.0
-loop = true
-step = 0.1
-
-[sub_resource type="Animation" id=8]
-
-length = 0.9
-loop = true
-step = 0.15
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/imported = false
-tracks/0/keys = {
-"times": FloatArray( 0, 0.15, 0.45, 0.6 ),
-"transitions": FloatArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 0, 2 ]
-}
-
-[sub_resource type="Animation" id=9]
-
-length = 1.0
-loop = true
-step = 0.1
 
 [node name="Body" type="KinematicBody2D"]
 
@@ -83,8 +19,6 @@ collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
-direction = 0
-strife = null
 
 [node name="Sprite" type="Sprite" parent="."]
 
@@ -92,24 +26,6 @@ texture = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="Animation" type="AnimationPlayer" parent="Sprite"]
-
-playback/process_mode = 1
-playback/default_blend_time = 0.0
-root/root = NodePath("..")
-anims/down_idle = SubResource( 2 )
-anims/down_moving = SubResource( 3 )
-anims/left_idle = SubResource( 4 )
-anims/left_moving = SubResource( 5 )
-anims/right_idle = SubResource( 6 )
-anims/right_moving = SubResource( 7 )
-anims/up_idle = SubResource( 8 )
-anims/up_moving = SubResource( 9 )
-playback/active = true
-playback/speed = 1.0
-blend_times = [  ]
-autoplay = "down_idle"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 
