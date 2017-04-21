@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://splash/splash.gd" type="Script" id=1]
+[ext_resource path="res://splash/logo_vertical_negative.tex" type="Texture" id=2]
+[ext_resource path="res://effects/transition.tscn" type="PackedScene" id=3]
+[ext_resource path="res://effects/fader.tscn" type="PackedScene" id=4]
+
+[node name="Splash" type="Control"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+script/script = ExtResource( 1 )
+wait_time_per_image = 3.0
+
+[node name="Timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="Images" type="Control" parent="."]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+
+[node name="ugd" type="TextureFrame" parent="Images"]
+
+anchor/right = 1
+anchor/bottom = 1
+rect/scale = Vector2( 0.25, 0.25 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 251.0
+margin/top = 130.0
+margin/right = 0.0
+margin/bottom = 80.0
+texture = ExtResource( 2 )
+stretch_mode = 6
+
+[node name="Transition" parent="." instance=ExtResource( 3 )]
+
+next_scene_path = "res://menu/main.tscn"
+
+[node name="Fader" parent="." instance=ExtResource( 4 )]
+
+
