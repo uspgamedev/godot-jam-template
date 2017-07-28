@@ -58,7 +58,7 @@ stretch_mode = 6
 
 [node name="Transition" parent="." instance=ExtResource( 3 )]
 
-next_scene_path = "res://menu/main.tscn"
+next_scene_path = "res://tests/body_movement.tscn"
 
 [node name="Fader" parent="." instance=ExtResource( 4 )]
 
