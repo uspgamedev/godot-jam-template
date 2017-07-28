@@ -9,8 +9,8 @@ const CLEAR = Color(0,0,0,0)
 onready var screen = get_node("Screen")
 onready var tween = get_node("Tween")
 
-signal done_fade_in
-signal done_fade_out
+signal faded_in
+signal faded_out
 
 func _ready():
   screen.show()
@@ -19,10 +19,10 @@ func fade_in():
   tween.interpolate_method(screen, "set_color", BLACK, CLEAR, fade_in_time, Tween.TRANS_LINEAR, Tween.EASE_IN)
   tween.start()
   yield(tween, "tween_complete")
-  emit_signal("done_fade_in")
+  emit_signal("faded_in")
 
 func fade_out():
   tween.interpolate_method(screen, "set_color", CLEAR, BLACK, fade_out_time, Tween.TRANS_LINEAR, Tween.EASE_IN)
   tween.start()
   yield(tween, "tween_complete")
-  emit_signal("done_fade_out")
+  emit_signal("faded_out")

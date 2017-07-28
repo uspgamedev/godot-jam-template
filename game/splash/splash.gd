@@ -29,12 +29,12 @@ func play():
     # fade in
     img.show()
     fader.fade_in()
-    yield(fader, "done_fade_in")
+    yield(fader, "faded_in")
     # wait
     timer.start()
     yield(timer, "timeout")
     # fade out
     fader.fade_out()
-    yield(fader, "done_fade_out")
+    yield(fader, "faded_out")
     img.hide()
   transition.go()
