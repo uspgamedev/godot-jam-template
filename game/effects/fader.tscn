@@ -15,7 +15,7 @@ fade_out_time = 1.0
 [node name="Screen" type="Polygon2D" parent="."]
 
 visibility/visible = false
-polygon = Vector2Array( 0, 0, 640, 0, 640, 480, 0, 480 )
+polygon = Vector2Array( 0, 0, 800, 0, 800, 600, 0, 600 )
 uv = Vector2Array(  )
 color = Color( 0, 0, 0, 1 )
 vertex_colors = ColorArray(  )
